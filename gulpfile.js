@@ -43,7 +43,7 @@ var del = require("del");
 //});
 
 gulp.task('less', function() {
- gulp.src("sources/less/style.less")
+ gulp.src("src/less/style.less")
 	.pipe(plumber())
 	.pipe(less())
 	.pipe(postcss([                                                 // делаем постпроцессинг
@@ -67,14 +67,14 @@ gulp.task('less', function() {
 });
 
 gulp.task("minjs", function() { //минификация js и перенос в папку билд
-  gulp.src("sources/js/*.js")
+  gulp.src("src/js/*.js")
     .pipe(uglify())
     .pipe(rename('min.js'))
     .pipe(gulp.dest("build/js"));
 });
 
 gulp.task("html", function() {
-  gulp.src("sources/*.html")
+  gulp.src("src/*.html")
     .pipe(gulp.dest("build"));
 });
 
@@ -99,12 +99,12 @@ gulp.task("symbols", function() {//несколько свг в один
 
 gulp.task("copy", function() {
   return gulp.src([
-    "sources/fonts/**/*.{woff,woff2}",
-    "sources/img/**",
-    "sources/js/**",
-    "sources/*.html"
+    "src/fonts/**/*.{woff,woff2}",
+    "src/img/**",
+    "src/js/**",
+    "src/*.html"
   ], {
-    base: "sources/"
+    base: "src/"
   })
   .pipe(gulp.dest("build"));
 });
@@ -138,13 +138,13 @@ gulp.task("serve", function() {
     ui: false
   });
 
-  //gulp.watch("sources/**/*.less", ["build"]);
- //gulp.watch("sources/**/*.js", ["build"]);
-  //gulp.watch("sources/**/*.html", ["build"]);
+  //gulp.watch("src/**/*.less", ["build"]);
+ //gulp.watch("src/**/*.js", ["build"]);
+  //gulp.watch("src/**/*.html", ["build"]);
 
- gulp.watch("sources/**/*.js", ["build"]).on("change", browserSync.reload);
-  gulp.watch("sources/*.html", ["build"]).on("change", browserSync.reload);
-  gulp.watch("sources/**/*.less", ["build"]).on('change', browserSync.reload);
+ gulp.watch("src/**/*.js", ["build"]).on("change", browserSync.reload);
+  gulp.watch("src/*.html", ["build"]).on("change", browserSync.reload);
+  gulp.watch("src/**/*.less", ["build"]).on('change', browserSync.reload);
 });
 
 //оригинальная фукнции для выставвления итогового файла
@@ -156,6 +156,6 @@ gulp.task("serve", function() {
 //    ui: false
 //  });
 //
-//gulp.watch("sources/less/**/*.less", ["style"]);
-//gulp.watch("sources/js/**/*.js", ["minjs"]);
-//gulp.watch("sources/*.html", ["html"]).on("change", server.reload);
+//gulp.watch("src/less/**/*.less", ["style"]);
+//gulp.watch("src/js/**/*.js", ["minjs"]);
+//gulp.watch("src/*.html", ["html"]).on("change", server.reload);
