@@ -1,0 +1,112 @@
+body {
+	padding:0;
+	margin:0;
+}
+.page-header {
+	font-family: @MR;
+
+	&__wrapper {
+	padding-left: 15px;
+	padding-right: 15px;
+	box-shadow: border-box;
+	width: 1140px;
+	margin: auto;
+	color: #fff;
+	font-size:0;
+	background-color: #000;
+	}
+	&__list,
+	&__item,
+	&__country-list,
+	&__country-item,
+	&__value-list,
+	&__value-item {
+		.list-style-off;
+		text-transform: uppercase;
+		font-size: 12px;
+		font-family: @MR;
+
+	}
+	&__list {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+		
+	}
+	&__item {
+		margin-top: 20px;
+		margin-bottom: 20px;
+		margin-right: 20px;
+		&-link {
+			text-decoration: none;
+			color: #fff;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+	&__country-list,
+	&__value-list {
+		position: absolute;
+		top: 40px;
+		opacity: 0;
+		visibility: hidden;
+		transition:  0.6s ease;
+	}
+
+	&__value-list {
+		
+	}
+	&__country-img {
+		padding-right: 20px;
+
+		&-after {
+		padding-bottom: 2px;
+		padding-left:2px;
+		}
+	}
+	&__value-img {
+		margin-right: 2px;
+		&-after {
+		padding-bottom: 2px;
+		padding-left:2px;
+		}
+	}
+}
+
+.active-country:hover .page-header__country-list,
+.active-value:hover .page-header__value-list {
+opacity: 1;
+visibility: visible;
+transition: 0.6s ease;
+}
+.active-country:hover .animation,
+.active-value:hover .animation {
+	transform: rotate(180deg);
+	transition: 0.6s ease;
+	transform-origin: 60% 40%;
+}
+.last {
+	position: relative;
+	&-position {
+		margin-left: 45px;
+	}
+}
+.last::after {
+	content:"5";
+	position: absolute;
+	width: 15px;
+	font-size: 11px;
+	height: 15px;
+	vertical-align: middle;
+	background-color: rgb(253, 49, 49);
+	border-radius: 50%;
+	text-align: center;
+	top: -8px;
+	left: 8px;
+} 
+.login-position {
+	margin-left: 270px;
+}
