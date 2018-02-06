@@ -17,6 +17,8 @@
 		margin:0;
 		margin: auto;
 		font-size: 36px;
+		
+		text-align: center;
 	}
 	&-list,
 	.sub-menu__list {
@@ -44,13 +46,15 @@
 }
 .sub-menu {
 	&__link {
-		color: #000;
+		color: rgb(110, 110, 110);
 		text-decoration: none;
 		&:hover {
 			text-decoration: underline;
+			color: #000;
 		}
 	}
 }
+
 .active-prices:hover .sub-menu__list,
 .active-catalog:hover .sub-menu__list,
 .active-home:hover .sub-menu__list {
@@ -66,6 +70,9 @@
 }
 .item-grey-color {
 	color: rgb(110, 110, 110);
+	&:hover {
+		color: #000;
+	}
 }
 
 .active-prices:hover .animation,
