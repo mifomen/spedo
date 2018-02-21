@@ -9,7 +9,7 @@ var autoprefixer = require("autoprefixer"); //поддержка для стар
 var mqpacker = require("css-mqpacker"); //сортировка css
 var minify = require("gulp-csso"); //минификатор js
 var rename = require("gulp-rename"); //переименовывать файлы, решайет проблему с лшней папкой less
-var postcss = require("gulp-postcss");
+var postcss = require("gulp-postcss"); //prefix для старых браузеров
 var imagemin = require("gulp-imagemin");
 var svgstore = require("gulp-svgstore");
 var svgmin = require("gulp-svgmin");
@@ -142,7 +142,7 @@ gulp.task("serve", function() {
  //gulp.watch("src/**/*.js", ["build"]);
   //gulp.watch("src/**/*.html", ["build"]);
 
- gulp.watch("src/**/*.js", ["build"]).on("change", browserSync.reload);
+  gulp.watch("src/**/*.js", ["build"]).on("change", browserSync.reload);
   gulp.watch("src/*.html", ["build"]).on("change", browserSync.reload);
   gulp.watch("src/**/*.less", ["build"]).on('change', browserSync.reload);
 });
