@@ -1,0 +1,109 @@
+ .header-slider {
+  // font-family: 'Georgia','serif','Timew New Roman';
+  // font-weight: bold;
+  // text-transform: uppercase;
+  font-size: 24px;
+  background-color: #baf9c4;
+
+  &__wrapper {
+    width: @wrapper;
+    margin:auto;
+    // outline:2px solid;
+    // outline-offset: -2px;
+    font-family: @CR;
+    position: relative; 
+    height: 525px;
+
+    box-sizing: border-box;
+  }
+}
+
+.collection {
+  margin-left: 110px;
+    //   outline:2px solid;
+    // outline-offset: -2px;
+  &__next-month {
+    font-size: 24px;
+    text-transform: uppercase;
+    padding-top: 100px;
+  }
+  &__anounce{
+    font-family: @Georgia;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 36px;
+    padding-top: 40px;
+    width: 45%;
+  }
+  &__description {
+    font-family: @RR;
+    font-size: 14px;
+    font-style: italic;
+    padding-top: 40px;
+    color: #747a75;
+    font-weight: bold;
+    width:37%;
+    margin-bottom: 40px;
+  }
+  &__link {
+    padding: 20px 25px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    margin-top: 45px;
+    font-family: @Georgia;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight:bold;
+    &:hover {
+     text-decoration: underline;
+   }
+   &-img {
+    border-left: 0.5px solid transparent;
+    transform: rotate(-90deg) scale(1.5) translateX(0px);
+  }
+  }
+   &__img {
+    position: absolute;
+    bottom: 1px;   
+    display: block;
+    right: 16%;
+    // border:2px solid darkblue;
+      &:after {
+      display: block;
+      content:'asddddddddddddddddddddddddd';
+      width: 400px;
+      height: 400px;
+      border:2px solid darkblue;
+      background-color: darkblue;
+      font-size: 25px;
+    }
+  }
+}
+
+.header-slider-button {
+  // font-size: 0;
+  display: none;
+}
+.header-slider__label {
+  width: 19px;
+  height: 19px;
+  border: 1px solid #000;
+  background-color: #000;
+  content: "";
+  font-size: 0px;
+  display: block;
+  border-radius: 50%;
+  margin-top: 10px;
+}
+.header-slider-button:checked + .header-slider__label {
+  background-color: transparent;
+}
+
+.header-slider__controls {
+  position: absolute;
+  right:1%;
+  top: 50%;
+  transform: translateY(-50%);
+
+}
