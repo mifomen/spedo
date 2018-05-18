@@ -1,15 +1,20 @@
 .design-your-product {
   position: relative;     
   // * {outline: 2px solid;}
-  // overflow: hidden;
+  overflow: hidden;
+  // * {
+  //   outline: 2px solid;
+  // }
   &__wrapper {
     .wrapper;
+     position: relative;     
     height: 550px;
     vertical-align: middle;
+    // width: 1170px;
     overflow: hidden;
   }
   &__frame {
-
+    z-index: 1;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -19,7 +24,7 @@
     position: absolute;
     // z-index: 1;
     // right: 20%;
-transform: translateX(78%);
+transform: translateX(60%) translateY(-550px);
   
   }
   &__price {
