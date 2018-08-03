@@ -42,6 +42,30 @@ var del = require("del");
 //  gulp.watch("./prin/**/*.html").on('change', browserSync.reload);
 //});
 
+// function less() {
+//    return gulp.src("src/less/style.less")
+//   .pipe(plumber())
+//   .pipe(less())
+//   .pipe(postcss([                                                 // делаем постпроцессинг
+//   autoprefixer({ browsers: [
+//   'last 2 versions', 
+//   'ie 11',
+//   'ie 10',
+//   'Android >= 4.1', 
+//   'Safari >= 8',
+//   'iOS >= 8'
+//   ] }),     // автопрефиксирование
+//   mqpacker({ sort: true })                                     // объединение медиавыражений
+// ]))
+// //.pipe(gulp.dest("build/css")) положить в папку не сжатый файл
+//   .pipe(csso()) //минификатор css
+// //  .pipe(minify()) //минифицирует js
+//   .pipe(rename('style.min.css'))
+//   //.pipe(rename('style.css'))
+//   .pipe(gulp.dest('build/css'))
+//   .pipe(browserSync.stream());
+// }
+
 gulp.task('less', function() {
  gulp.src("src/less/style.less")
 	.pipe(plumber())
@@ -118,17 +142,42 @@ gulp.task("deploy", function() {
     .pipe(ghPages());
 });
 
-gulp.task("build", function(fn) {
-  run(
+// gulp.task("build", function(fn) {
+//   run(
+//     "clean",
+//     "copy",
+//     "less",
+//     "minjs",
+//     "images",
+//     "symbols",
+//     fn
+//   );
+// });
+
+gulp.task('build', gulp.series(
+  // gulp.task('clean'),
+  // gulp.task('copy'),
+  // gulp.task('less'),
+  // gulp.task('minjs'),
+  // gulp.task('images'),
+  // gulp.task('symbols')
     "clean",
     "copy",
     "less",
     "minjs",
     "images",
-    "symbols",
-    fn
-  );
-});
+    "symbols"
+  )
+);
+
+
+
+  // gulp.task('clean');
+  // gulp.task('copy');
+  // gulp.task('less');
+  // gulp.task('minjs');
+  // gulp.task('images');
+  // gulp.task('symbols');
 
 gulp.task("serve", function() {
   browserSync.init({
@@ -159,3 +208,11 @@ gulp.task("serve", function() {
 //gulp.watch("src/less/**/*.less", ["style"]);
 //gulp.watch("src/js/**/*.js", ["minjs"]);
 //gulp.watch("src/*.html", ["html"]).on("change", server.reload);
+
+var gulp = require('gulp');
+var ghPages = require('gulp-gh-pages');
+ 
+gulp.task('deploy', function() {
+  return gulp.src('build/**/*')
+    .pipe(ghPages());
+});
